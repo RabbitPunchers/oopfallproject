@@ -1,6 +1,7 @@
 #pragma once
 #include "RobotInterface.h"
-class PioneerRobotInterface : public PioneerRobotAPI, public RobotInterface
+#include "PioneerRobotAPI.h"
+class PioneerRobotInterface :  public RobotInterface, public PioneerRobotAPI
 {
 public:
 	PioneerRobotInterface();
@@ -8,7 +9,7 @@ public:
 	bool open();
 	void move(float speed);
 	bool close();
-	void turn(PioneerRobotAPI::DIRECTION dir);
+	void turn(RobotInterface::DIRECTION dir);
 	void stop();
 	void updateRobot();
 	~PioneerRobotInterface();

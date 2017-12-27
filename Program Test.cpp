@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
 	int sw1, sw2, sw3, swm;
-	RobotInterface robot;
+	PioneerRobotInterface robot;
 	FOREVER{
 		cout << "Main Menu" << endl << "1. Connection" << endl << "2. Motion" << endl << "3. Sensor" << endl << "4. Quit" << endl << "Choose one : ";
 		cin >> swm;

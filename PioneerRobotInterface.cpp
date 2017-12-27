@@ -38,9 +38,14 @@ bool PioneerRobotInterface::close()
 {
 	return disconnect();
 }
-void PioneerRobotInterface::turn(PioneerRobotAPI::DIRECTION dir)
+void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 {
-	turnRobot(dir);
+	if (dir == -1)
+		turnRobot(PioneerRobotAPI::DIRECTION::left);
+	else if (dir == 0)
+		turnRobot(PioneerRobotAPI::DIRECTION::forward);
+	else if (dir == 1)
+		turnRobot(PioneerRobotAPI::DIRECTION::right);
 }
 void PioneerRobotInterface::stop() {
 	stopRobot();
