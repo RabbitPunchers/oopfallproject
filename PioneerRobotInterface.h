@@ -13,5 +13,10 @@ public:
 	void stop();
 	void updateRobot();
 	~PioneerRobotInterface();
+protected:
+	float myX, myY, myTh;
+	float sonars[16];
+	float laserMin;
+	float laserMax;
 };
 

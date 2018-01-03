@@ -50,6 +50,10 @@ int main()
 					cout << "Motion Menu" << endl << "1. Move Robot" << endl << "2. Safe Move Robot" << endl << "3. Turn Left" << endl << "4. Turn Right" << endl;
 					cout << "5. Forward" << endl << "6. Move Distance" << endl << "7. Close Wall" << endl << "8. Back" << endl << "Choose One : ";
 					cin >> sw2;
+					if (sw2 == 0)
+					{
+
+					}
 				}
 				break;
 			case 3: // Sensor Menu

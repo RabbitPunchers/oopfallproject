@@ -14,17 +14,12 @@ PioneerRobotInterface::~PioneerRobotInterface()
 
 void PioneerRobotInterface::update()
 {
-	float myX, myY, myTh;
-	float sonars[16];
-	float laserMin;
-	float laserMax;
+
 	myX = getX();
 	myY = getY();
 	myTh = getTh();
 	getSonarRange(sonars);
 	getLaserRange(laserMin, laserMax);
-	
-	
 }
 bool PioneerRobotInterface::open()
 {
@@ -47,7 +42,8 @@ void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 	else if (dir == 1)
 		turnRobot(PioneerRobotAPI::DIRECTION::right);
 }
-void PioneerRobotInterface::stop() {
+void PioneerRobotInterface::stop() 
+{
 	stopRobot();
 }
 void PioneerRobotInterface::updateRobot()
