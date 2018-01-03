@@ -1,13 +1,19 @@
 #include <iostream>
 #include <string>
 #include "PioneerRobotInterface.h"
+#include "RobotControl.h"
 #define FOREVER while(true)
 using namespace std;
 
 int main()
 {
 	int sw1, sw2, sw3, swm;
-	PioneerRobotInterface robot;
+	PioneerRobotInterface* robot = new PioneerRobotInterface;
+	SonarSensor* sonar = new SonarSensor;
+	LaserSensor* laser = new LaserSensor;
+	RobotControl controller(robot, laser, sonar);
+	
+
 	FOREVER{
 		cout << "Main Menu" << endl << "1. Connection" << endl << "2. Motion" << endl << "3. Sensor" << endl << "4. Quit" << endl << "Choose one : ";
 		cin >> swm;
@@ -21,20 +27,20 @@ int main()
 					if (sw1 == 1) //ROBOT CONNECTION
 					{
 						system("cls");
-						if (!robot.open()) {
+						if (!robot->open()) {
 							cout << "Robot connection failed." << endl << endl;
 						}
-						else if (robot.open()) {
+						else if (robot->open()) {
 							cout << "Robot is connected succesfully." << endl << endl;
 						}
 					}
 					else if (sw1 == 2) //ROBOT DISCONNECTION
 					{
 						system("cls");
-						if (!robot.close()) {
+						if (!robot->close()) {
 							cout << "Robot disconnection failed." << endl << endl;
 						}
-						if (robot.close()) {
+						if (robot->close()) {
 							cout << "Robot is disconnected succesfully." << endl << endl;
 						}
 					}
@@ -58,7 +64,13 @@ int main()
 				break;
 			case 3: // Sensor Menu
 				FOREVER{
-
+					
+					cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl;
+					cin >> sw3;
+					if (sw3 == 1)
+					{
+						setSensor()
+					}
 				}
 				break;
 			case 4: // Quit Selection
@@ -66,7 +78,6 @@ int main()
 			default: // Default Menu
 				cout << "Please type numbers between 1-4.";
 				break;
-
 		}
 	}
 }
