@@ -1,13 +1,14 @@
 #pragma once
 #include "Position.h"
-#include "RangeSensor.h"
+#include "SonarSensor.h"
+#include "LaserSensor.h"
 #include "PioneerRobotAPI.h"
 using namespace std;
 class RobotInterface
 {
 public:
 	enum DIRECTION {
-		left = -1, forward = 0, right = 1
+		LEFT = -1, FORWARD = 0, RIGHT = 1
 	};
 	RobotInterface();
 	void setPosition(Position* pos);

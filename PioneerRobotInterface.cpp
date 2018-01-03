@@ -15,11 +15,7 @@ PioneerRobotInterface::~PioneerRobotInterface()
 void PioneerRobotInterface::update()
 {
 
-	myX = getX();
-	myY = getY();
-	myTh = getTh();
-	getSonarRange(sonars);
-	getLaserRange(laserMin, laserMax);
+
 }
 bool PioneerRobotInterface::open()
 {
@@ -48,5 +44,12 @@ void PioneerRobotInterface::stop()
 }
 void PioneerRobotInterface::updateRobot()
 {
-	updateRobot();
+	getLaserRange();
+	getSonarRange();
+	PioneerRobotAPI::updateRobot();
+	myX = getX();
+	myY = getY();
+	myTh = getTh();
+	getSonarRange(sonars);
+	getLaserRange(laserMin, laserMax);
 }
