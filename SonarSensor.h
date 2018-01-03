@@ -5,13 +5,15 @@ class SonarSensor :
 {
 	float ranges[16];
 public:
-	SonarSensor();
-	~SonarSensor();
-	float getRange(int);
-	void setRange(float[]);
+	float getRange(int index);
+	void setRange(float range[]);
 	float getMax();
 	float getMin();
-	void updateSensor(float[]);
-	float operator[](int);
+	void updateSensor(float ranges[]);
+	float operator[](int i);
+
+public:
+	SonarSensor();
+	~SonarSensor();
 };
 
