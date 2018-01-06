@@ -1,7 +1,6 @@
 #pragma once
 #include "RobotInterface.h"
-#include "PioneerRobotAPI.h"
-class PioneerRobotInterface :  public RobotInterface, public PioneerRobotAPI
+class PioneerRobotInterface : public RobotInterface, public PioneerRobotAPI
 {
 public:
 	PioneerRobotInterface();

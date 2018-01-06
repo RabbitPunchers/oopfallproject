@@ -1,29 +1,36 @@
 #include "RobotControl.h"
 
+
+
+
 RobotControl::~RobotControl()
 {
+	
 }
+
 void RobotControl::safeMove(int speed)
 {
-	while(true){
-		robot->update();
+	
+	while (true) {
+		robot.update();
 		if (sensor[0]->getMin() < 40)
 			break;
-		robot->move(speed);
+		robot.move(speed);
 		Sleep(1000);
 	}
+	
 }
 void RobotControl::turnLeft()
 {
-	robot->turn(RobotInterface::LEFT);
+	robot.turn(RobotInterface::left);
 }
 void RobotControl::turnRight()
 {
-	robot->turn(RobotInterface::RIGHT);
+	robot.turn(RobotInterface::right);
 }
 void RobotControl::forward()
 {
-	robot->move(50);
+	robot.move(50);
 }
 void RobotControl::print()
 {
@@ -32,25 +39,25 @@ void RobotControl::print()
 	cout << "-----------------------------------------" << endl << "Laser Sensor's range to the nearest wall: " << sensor[0]->getMin();
 	cout << endl << "Sonar Sensor's ranges by index number: " << endl;
 	for (int i = 0; i < 16; i++)
-	{
-		cout << "Index: " << i << "// Range: " << sensor[1]->getRange(i) << endl;
-	}
+		 {
+			cout << "Index: " << i << "// Range: " << sensor[1]->getRange(i) << endl;
+		}
 }
 void RobotControl::moveDistance(float distance)
 {
-	//distance / 50 = t;
 	float t = 0;
-	for(t; t=distance/50;)
-	{
-		robot->update();
+	for (t; t = distance / 50;)
+		 {
+		robot.update();
 		if (sensor[0]->getMin() < 40)
-			break;
-		robot->move(50);
+			 break;
+		robot.move(50);
 		Sleep(1000);
 		t += 1;
-	}
+		}
+
+	
 }
-void RobotControl::closeWall()
-{
+void RobotControl::closeWall() {
 	safeMove(50);
 }

@@ -2,20 +2,17 @@
 
 
 
+
 PioneerRobotInterface::PioneerRobotInterface()
 {
-	
+	setRobot(this);
 }
 
 
-PioneerRobotInterface::~PioneerRobotInterface()
-{
-}
 
 void PioneerRobotInterface::update()
 {
-
-
+		
 }
 bool PioneerRobotInterface::open()
 {
@@ -38,18 +35,22 @@ void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 	else if (dir == 1)
 		turnRobot(PioneerRobotAPI::DIRECTION::right);
 }
-void PioneerRobotInterface::stop() 
+void PioneerRobotInterface::stop()
 {
 	stopRobot();
 }
 void PioneerRobotInterface::updateRobot()
 {
-	getLaserRange();
-	getSonarRange();
+//	getLaserRange();
+	//getSonarRange();
 	PioneerRobotAPI::updateRobot();
 	myX = getX();
 	myY = getY();
 	myTh = getTh();
 	getSonarRange(sonars);
 	getLaserRange(laserMin, laserMax);
+}
+
+PioneerRobotInterface::~PioneerRobotInterface()
+{
 }
