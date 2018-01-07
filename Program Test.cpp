@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	int sw1, sw2, sw3, swm;
-	PioneerRobotInterface robot;
+	PioneerRobotInterface* robot = new PioneerRobotInterface;
 	SonarSensor* sonar = new SonarSensor;
 	LaserSensor* laser = new LaserSensor;
 	RobotControl controller(robot, laser, sonar);
@@ -28,22 +28,23 @@ int main()
 		if (sw1 == 1) //ROBOT CONNECTION
 		{
 			system("cls");
-			if (robot.open() == false) {
-				cout << "Robot connection failed." << endl << endl;
-				
-			}
-			else if (robot.open()) {
+			if (robot->open()) {
 				cout << "Robot is connected succesfully." << endl << endl;
+			}
+			else
+			{
+				cout << "Robot connection is unsuccessful." << endl << endl;
 			}
 		}
 		else if (sw1 == 2) //ROBOT DISCONNECTION
 		{
 			system("cls");
-			if (robot.close()==false) {
-				cout << "Robot disconnection failed." << endl << endl;
-			}
-			if (robot.close()) {
+			if (robot->close()) {
 				cout << "Robot is disconnected succesfully." << endl << endl;
+			}
+			else 
+			{
+				cout << "Robot disconnecion is unsuccessful" << endl << endl;
 			}
 		}
 		else if (sw1 == 3)
@@ -59,7 +60,7 @@ int main()
 		cout << "5. Forward" << endl << "6. Move Distance" << endl << "7. Close Wall" << endl << "8. Back" << endl << "Choose One : ";
 		cin >> sw2;
 		if (sw2 == 1)
-			robot.move(50);
+			robot->move(50);
 		else if (sw2 == 2)
 			controller.safeMove(50);
 		else if (sw2 == 3)
@@ -69,7 +70,12 @@ int main()
 		else if (sw2 == 5)
 			controller.forward();
 		else if (sw2 == 6)
-			controller.moveDistance(50);
+		{
+			float dist;
+			cout << "Please enter desired distance: ";
+			cin >> dist;
+			controller.moveDistance(dist);
+		}
 		else if (sw2 == 7)
 			controller.closeWall();
 		else if (sw2 == 8)

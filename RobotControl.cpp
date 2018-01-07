@@ -12,25 +12,25 @@ void RobotControl::safeMove(int speed)
 {
 	
 	while (true) {
-		robot.update();
+		robot->update();
 		if (sensor[0]->getMin() < 40)
 			break;
-		robot.move(speed);
+		robot->move(speed);
 		Sleep(1000);
 	}
 	
 }
 void RobotControl::turnLeft()
 {
-	robot.turn(RobotInterface::left);
+	robot->turn(RobotInterface::left);
 }
 void RobotControl::turnRight()
 {
-	robot.turn(RobotInterface::right);
+	robot->turn(RobotInterface::right);
 }
 void RobotControl::forward()
 {
-	robot.move(50);
+	robot->move(50);
 }
 void RobotControl::print()
 {
@@ -48,10 +48,10 @@ void RobotControl::moveDistance(float distance)
 	float t = 0;
 	for (t; t = distance / 50;)
 		 {
-		robot.update();
+		robot->update();
 		if (sensor[0]->getMin() < 40)
 			 break;
-		robot.move(50);
+		robot->move(50);
 		Sleep(1000);
 		t += 1;
 		}
