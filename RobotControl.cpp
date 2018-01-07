@@ -18,7 +18,7 @@ void RobotControl::safeMove(int speed)
 		robot->move(speed);
 		Sleep(1000);
 	}
-	
+	robot->stop();
 }
 void RobotControl::turnLeft()
 {

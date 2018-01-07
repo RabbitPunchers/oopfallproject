@@ -29,11 +29,23 @@ bool PioneerRobotInterface::close()
 void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 {
 	if (dir == -1)
+	{
 		turnRobot(PioneerRobotAPI::DIRECTION::left);
+		Sleep(1000);
+		stop();
+	}
 	else if (dir == 0)
-		turnRobot(PioneerRobotAPI::DIRECTION::forward);
+	{
+	turnRobot(PioneerRobotAPI::DIRECTION::forward);
+	Sleep(1000);
+	stop();
+	}
 	else if (dir == 1)
+	{
 		turnRobot(PioneerRobotAPI::DIRECTION::right);
+		Sleep(1000);
+		stop();
+	}
 }
 void PioneerRobotInterface::stop()
 {

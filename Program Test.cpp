@@ -56,19 +56,39 @@ int main()
 		break;
 	case 2: // Motion Menu
 		FOREVER{
-			cout << "Motion Menu" << endl << "1. Move Robot" << endl << "2. Safe Move Robot" << endl << "3. Turn Left" << endl << "4. Turn Right" << endl;
-		cout << "5. Forward" << endl << "6. Move Distance" << endl << "7. Close Wall" << endl << "8. Back" << endl << "Choose One : ";
+		cout << "Motion Menu" << endl << "1. Move Robot" << endl << "2. Safe Move Robot" << endl << "3. Turn Left" << endl << "4. Turn Right" << endl;
+		cout << "5. Forward" << endl << "6. Move Distance" << endl << "7. Close Wall" << endl << "8. Stop Robot" << endl << "9. Back" << endl << "Choose One : ";
 		cin >> sw2;
 		if (sw2 == 1)
+		{
+			system("cls");
 			robot->move(50);
+			cout << "Robot is moving with speed 50." << endl << endl;
+		}			
 		else if (sw2 == 2)
+		{
+			system("cls");
 			controller.safeMove(50);
+			cout << "Robot is moving with speed 50. It will stop when it get closes the wall." << endl << endl;
+		}
 		else if (sw2 == 3)
+		{
+			system("cls");
 			controller.turnLeft();
+			cout << "Robot is turning left." << endl << endl;
+		}
 		else if (sw2 == 4)
+		{
+			system("cls");
 			controller.turnRight();
+			cout << "Robot is turning left." << endl << endl;
+		}
 		else if (sw2 == 5)
+		{
+			system("cls");
 			controller.forward();
+			cout << "Robot is moving with speed 50." << endl << endl;
+		}
 		else if (sw2 == 6)
 		{
 			float dist;
@@ -77,8 +97,18 @@ int main()
 			controller.moveDistance(dist);
 		}
 		else if (sw2 == 7)
+		{
+			system("cls");
 			controller.closeWall();
+			cout << "Robot is moving with speed 50. It will stop when it get closes the wall." << endl << endl;
+		}
 		else if (sw2 == 8)
+		{
+			system("cls");
+			robot->stop();
+			cout << "Robot has stopped." << endl << endl;
+		}
+		else if (sw2 == 9)
 		{
 			system("cls");
 			break;
