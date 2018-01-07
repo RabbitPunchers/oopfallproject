@@ -10,10 +10,12 @@ using namespace std;
 int main()
 {
 	int sw1, sw2, sw3, swm;
-	PioneerRobotInterface* robot = new PioneerRobotInterface;
+	
 	SonarSensor* sonar = new SonarSensor;
 	LaserSensor* laser = new LaserSensor;
+	PioneerRobotInterface* robot = new PioneerRobotInterface;
 	RobotControl controller(robot, laser, sonar);
+	robot->setSensor(laser, sonar);
 
 	FOREVER{
 		cout << "Main Menu" << endl << "1. Connection" << endl << "2. Motion" << endl << "3. Sensor" << endl << "4. Quit" << endl << "Choose one : ";
@@ -68,8 +70,8 @@ int main()
 		else if (sw2 == 2)
 		{
 			system("cls");
-			controller.safeMove(50);
-			cout << "Robot is moving with speed 50. It will stop when it get closes the wall." << endl << endl;
+			controller.safeMove(80);
+			cout << "Robot is moving with speed 80. It will stop when it get closes the wall." << endl << endl;
 		}
 		else if (sw2 == 3)
 		{

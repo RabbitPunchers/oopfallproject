@@ -36,9 +36,9 @@ void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 	}
 	else if (dir == 0)
 	{
-	turnRobot(PioneerRobotAPI::DIRECTION::forward);
-	Sleep(1000);
-	stop();
+		turnRobot(PioneerRobotAPI::DIRECTION::forward);
+		Sleep(1000);
+		stop();
 	}
 	else if (dir == 1)
 	{
@@ -53,14 +53,19 @@ void PioneerRobotInterface::stop()
 }
 void PioneerRobotInterface::updateRobot()
 {
-//	getLaserRange();
+	//getLaserRange();
 	//getSonarRange();
 	PioneerRobotAPI::updateRobot();
 	myX = getX();
 	myY = getY();
 	myTh = getTh();
 	getSonarRange(sonars);
+	rangeSensor[1]->updateSensor(sonars);
 	getLaserRange(laserMin, laserMax);
+	float laserRanges[2];
+	laserRanges[0] = laserMin;
+	laserRanges[1] = laserMax;
+	rangeSensor[0]->updateSensor(laserRanges);
 }
 
 PioneerRobotInterface::~PioneerRobotInterface()

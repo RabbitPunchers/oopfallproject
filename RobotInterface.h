@@ -5,15 +5,16 @@
 using namespace std;
 class RobotInterface
 {
+protected:
 	 Position* position;
-	 RangeSensor* rangeSensor;
+	 vector <RangeSensor*>rangeSensor;
 public:
 	enum DIRECTION {
 		left = -1, forward = 0, right = 1
 	};
 	RobotInterface();
 	void setPosition(Position*);
-	void setSensor(RangeSensor* );
+	void setSensor(RangeSensor*, RangeSensor*);
 	virtual void update() = 0;
 	virtual bool open() = 0;
 	virtual bool close() = 0;

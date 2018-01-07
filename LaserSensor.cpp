@@ -23,7 +23,8 @@ void LaserSensor::setRange(float range[])
 }
 void LaserSensor::updateSensor(float ranges[])
 {
-
+	min = ranges[0];
+	max = ranges[1];
 }
 float LaserSensor::getMax()
 {

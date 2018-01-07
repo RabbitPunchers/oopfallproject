@@ -13,7 +13,7 @@ void RobotControl::safeMove(int speed)
 	
 	while (true) {
 		robot->update();
-		if (sensor[0]->getMin() < 40)
+		if (sensor[0]->getMin() < 80  || sensor[1]->getRange(6) < 80 || sensor[1]->getRange(5) < 80 || sensor[1]->getRange(4) < 80 || sensor[1]->getRange(3) < 80 || sensor[1]->getRange(2) < 80 || sensor[1]->getRange(1) < 80)
 			break;
 		robot->move(speed);
 		Sleep(1000);
