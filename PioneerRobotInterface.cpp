@@ -13,12 +13,12 @@ PioneerRobotInterface::PioneerRobotInterface()
 void PioneerRobotInterface::update()
 {
 	this->updateRobot();
-	myX = getX();
-	myY = getY();
-	myTh = getTh();
+	myX = this->getX();
+	myY = this->getY();
+	myTh = this->getTh();
 	position->setTh(myTh);
-	position->setTh(myY);
-	position->setTh(myX);
+	position->setY(myY);
+	position->setX(myX);
 	getSonarRange(sonars);
 	rangeSensor[1]->updateSensor(sonars);
 	getLaserRange(laserMin, laserMax);

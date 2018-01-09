@@ -172,6 +172,7 @@ int main()
 		{
 			robot->update();
 			system("cls");
+			cout << robot->getX() << endl << endl;
 			controller.print();
 
 		}
