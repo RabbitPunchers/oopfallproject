@@ -123,7 +123,7 @@ int main()
 		break;
 	case 3: // Sensor Menu
 		FOREVER{
-			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3.Back" << endl << "Choose One: ";
+			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3. Back" << endl << "Choose One: ";
 		cin >> sw3;
 		if (sw3 == 1)
 			{
@@ -144,10 +144,11 @@ int main()
 				for (int _index = 0; _index < 16; _index++)
 					cout << "Sensor[" << _index << "] :" << sonar->getRange(_index) << endl;
 			}
-			else
+			else if (sonar_index > -1 && sonar_index < 16)
 				cout << "Sensor number " << sonar_index << ": " << sonar->getRange(sonar_index) << endl << endl;
+			else
+				cout << "**Error**" << endl << "Please specify a number between -1 and 15" << endl;
 			}
-		
 		else if (sw3 == 3)
 			{
 			system("cls");
