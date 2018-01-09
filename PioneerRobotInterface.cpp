@@ -12,7 +12,20 @@ PioneerRobotInterface::PioneerRobotInterface()
 
 void PioneerRobotInterface::update()
 {
-
+	this->updateRobot();
+	myX = getX();
+	myY = getY();
+	myTh = getTh();
+	position->setTh(myTh);
+	position->setTh(myY);
+	position->setTh(myX);
+	getSonarRange(sonars);
+	rangeSensor[1]->updateSensor(sonars);
+	getLaserRange(laserMin, laserMax);
+	float laserRanges[2];
+	laserRanges[0] = laserMin;
+	laserRanges[1] = laserMax;
+	rangeSensor[0]->updateSensor(laserRanges);
 }
 bool PioneerRobotInterface::open()
 {
@@ -55,16 +68,6 @@ void PioneerRobotInterface::stop()
 void PioneerRobotInterface::updateRobot()
 {
 	PioneerRobotAPI::updateRobot();
-	myX = getX();
-	myY = getY();
-	myTh = getTh();
-	getSonarRange(sonars);
-	rangeSensor[1]->updateSensor(sonars);
-	getLaserRange(laserMin, laserMax);
-	float laserRanges[2];
-	laserRanges[0] = laserMin;
-	laserRanges[1] = laserMax;
-	rangeSensor[0]->updateSensor(laserRanges);
 }
 
 PioneerRobotInterface::~PioneerRobotInterface(){}

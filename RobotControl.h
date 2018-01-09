@@ -28,7 +28,7 @@ class RobotControl
 	Position* position;
 public:
 	//! Constructor.
-	RobotControl(RobotInterface* _robot, LaserSensor * _laser, SonarSensor*  _sonar) :robot(_robot) {
+	RobotControl(RobotInterface* _robot, LaserSensor * _laser, SonarSensor*  _sonar, Position* _pos) :robot(_robot), position(_pos) {
 		sensor.push_back(_laser);
 		sensor.push_back(_sonar);
 	}

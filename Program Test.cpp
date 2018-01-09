@@ -14,7 +14,9 @@ int main()
 	SonarSensor* sonar = new SonarSensor;
 	LaserSensor* laser = new LaserSensor;
 	PioneerRobotInterface* robot = new PioneerRobotInterface;
-	RobotControl controller(robot, laser, sonar);
+	Position* posis = new Position;
+	RobotControl controller(robot, laser, sonar, posis);
+	robot->setPosition(posis);
 	robot->setSensor(laser, sonar);
 
 	FOREVER{
@@ -30,27 +32,24 @@ int main()
 		if (sw1 == 1) //ROBOT CONNECTION
 		{
 			system("cls");
-			if (robot->open()) {
+			if (robot->open())
+			{
 				cout << "Robot is connected succesfully." << endl << endl;
 				onoff = true;
 			}
 			else
-			{
 				cout << "Robot connection is unsuccessful." << endl << endl;
-				onoff = false;
-			}
 		}
 		else if (sw1 == 2) //ROBOT DISCONNECTION
 		{
 			system("cls");
-			if (robot->close()) {
+			if (robot->close())
+			{
 				cout << "Robot is disconnected succesfully." << endl << endl;
 				onoff = false;
 			}
-			else 
-			{
+			else
 				cout << "Robot disconnecion is unsuccessful" << endl << endl;
-			}
 		}
 		else if (sw1 == 3)
 			{
@@ -79,12 +78,12 @@ int main()
 			robot->move(50);
 			cout << "Robot is moving with speed 50." << endl << endl;
 			cout << "Min: " << laser->getMin() << " max: " << laser->getMax() << endl;;
-		}			
+		}
 		else if (sw2 == 2)
 		{
 			system("cls");
-			cout << "Robot is moving with speed 80. It will stop when it get closes the wall." << endl << endl;
-			controller.safeMove(1000);
+			cout << "Robot is moving with speed 300. It will stop when it get closes the wall." << endl;
+			controller.safeMove(300);
 		}
 		else if (sw2 == 3)
 		{
@@ -118,7 +117,6 @@ int main()
 			system("cls");
 			cout << "Robot is moving with speed 50. It will stop when it get closes the wall." << endl << endl;
 			controller.closeWall();
-
 		}
 		else if (sw2 == 8)
 		{
@@ -144,20 +142,20 @@ int main()
 			break;
 		}
 		FOREVER{
-			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3. Back" << endl << "Choose One: ";
+			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3. Print all" << endl << "4. Back" << endl << "Choose One: ";
 		cin >> sw3;
 		if (sw3 == 1)
 			{
-			system("cls");
-			cout << "Min: " << laser->getMin() << " Max: " << laser->getMax() << endl << endl;
+				system("cls");
+				cout << "Min: " << laser->getMin() << " Max: " << laser->getMax() << endl << endl;
 			}
-		else if(sw3 == 2)
+		else if (sw3 == 2)
 			{
-			robot->update();
-			system("cls");
-			int sonar_index;
-			cout << "Enter the index(Enter -1 to see them all.): ";
-			cin >> sonar_index;
+				robot->update();
+				system("cls");
+				int sonar_index;
+				cout << "Enter the index(Enter -1 to see them all.): ";
+				cin >> sonar_index;
 			if (sonar_index == -1)
 			{
 				system("cls");
@@ -171,6 +169,14 @@ int main()
 				cout << "**Error**" << endl << "Please specify a number between -1 and 15" << endl;
 			}
 		else if (sw3 == 3)
+		{
+			robot->update();
+			system("cls");
+			controller.print();
+
+		}
+
+		else if (sw3 == 4)
 			{
 			system("cls");
 			break;
@@ -184,6 +190,6 @@ int main()
 		cout << "Please type numbers between 1-4.";
 		break;
 
-	}
+		}
 	}
 }

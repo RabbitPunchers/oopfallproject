@@ -2,18 +2,16 @@
 
 
 
-<<<<<<< HEAD
+
 LaserSensor::LaserSensor()
 {
 min = 0;
 max = 0;
 }
 
-=======
-LaserSensor::LaserSensor(){}
->>>>>>> bc6569f7e7a53fa5e7812b73c173dc9ec4eb0ead
-
-LaserSensor::~LaserSensor(){}
+LaserSensor::~LaserSensor()
+{
+}
 
 float LaserSensor::getRange(int index)
 {
