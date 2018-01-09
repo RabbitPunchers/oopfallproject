@@ -35,6 +35,7 @@ float SonarSensor::getMax()
 }
 float SonarSensor::getMin()
 {
+	
 	float min = 0;
 	for (int i = 0; i < 16; i++)
 	{
