@@ -123,7 +123,7 @@ int main()
 		break;
 	case 3: // Sensor Menu
 		FOREVER{
-			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << "3.Back" << endl << "Choose One: ";
+			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3.Back" << endl << "Choose One: ";
 		cin >> sw3;
 		if (sw3 == 1)
 			{
