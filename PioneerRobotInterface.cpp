@@ -8,14 +8,12 @@ PioneerRobotInterface::PioneerRobotInterface()
 	setRobot(this);
 }
 
-
-
 void PioneerRobotInterface::update()
 {
 	this->updateRobot();
-	myX = this->getX();
-	myY = this->getY();
-	myTh = this->getTh();
+	myX = getX();
+	myY = getY();
+	myTh = getTh();
 	position->setTh(myTh);
 	position->setY(myY);
 	position->setX(myX);
@@ -27,19 +25,35 @@ void PioneerRobotInterface::update()
 	laserRanges[1] = laserMax;
 	rangeSensor[0]->updateSensor(laserRanges);
 }
+
+/*!
+    \return is Robot connected?
+*/
 bool PioneerRobotInterface::open()
 {
 	return connect();
 }
+
+/*!
+  \param speed is a float argument. Which represents the robot's movement speed.
+*/
 void PioneerRobotInterface::move(float speed)
 {
 	moveRobot(speed);
 
 }
+
+/*!
+   \return is Robot disconnected?
+*/
 bool PioneerRobotInterface::close()
 {
 	return disconnect();
 }
+
+/*!
+  \param dir is an enum.Which represent the turning direction.
+*/
 void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 {
 	if (dir == -1)
@@ -68,6 +82,16 @@ void PioneerRobotInterface::stop()
 void PioneerRobotInterface::updateRobot()
 {
 	PioneerRobotAPI::updateRobot();
+	/*myX = getX();
+	myY = getY();
+	myTh = getTh();
+	getSonarRange(sonars);
+	rangeSensor[1]->updateSensor(sonars);
+	getLaserRange(laserMin, laserMax);
+	float laserRanges[2];
+	laserRanges[0] = laserMin;
+	laserRanges[1] = laserMax;
+	rangeSensor[0]->updateSensor(laserRanges);*/
 }
 
 PioneerRobotInterface::~PioneerRobotInterface(){}

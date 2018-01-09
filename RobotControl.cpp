@@ -6,13 +6,17 @@ RobotControl::~RobotControl()
 	
 }
 
+
+/*!
+	\param speed is an int argument. Which represents the robot's movement speed.
+*/
 void RobotControl::safeMove(int speed)
 {
 	while (true) {
 		robot->update();
-		if (sensor[1]->getRange(13) < 700 || sensor[1]->getRange(4) < 700)
+		if (sensor[1]->getRange(3) < 700 || sensor[1]->getRange(4) < 700)
 			break;
-		robot->move(300);
+		robot->move(50);
 		Sleep(100);
 		cout << "Laser: "<< sensor[0]->getMin() << endl;
 		cout << "Sonar0:" << sensor[1]->getRange(0) << endl;
@@ -40,6 +44,7 @@ void RobotControl::forward()
 }
 void RobotControl::print()
 {
+	robot->update();
 	cout << "X: " << position->getX() << " Y: " << position->getY() << endl;
 	cout << "Facing Direction in Degree: " << position->getTh() << endl;
 	cout << "-----------------------------------------" << endl << "Laser Sensor's range to the nearest wall: " << sensor[0]->getMin();
@@ -50,15 +55,19 @@ void RobotControl::print()
 		}
 	cout << endl << endl;
 }
+
+/*!
+	\param distance is a float argument. Which represents how many milimetres the robot will go.
+*/
 void RobotControl::moveDistance(float distance)
 {
 	int t = 0;
-	for (t; t<=distance / 300;t = t + 1)
+	for (t; t<=distance / 50;t = t + 1)
 		 {
 		robot->update();
 		//if (sensor[1]->getMin() < 800)
 			// break;
-		robot->move(300);
+		robot->move(50);
 		Sleep(1000);
 		cout << "time: " << t << endl;
 		cout << "distance: " << distance << endl;
@@ -80,7 +89,7 @@ void RobotControl::closeWall() {
 		robot->update();
 		if (sensor[1]->getMin() < 700)
 			break;
-		robot->move(100);
+		robot->move(50);
 		Sleep(100);
 
 	}

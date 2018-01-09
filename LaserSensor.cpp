@@ -1,8 +1,6 @@
 #include "LaserSensor.h"
 
 
-
-
 LaserSensor::LaserSensor()
 {
 min = 0;
@@ -12,6 +10,7 @@ max = 0;
 LaserSensor::~LaserSensor()
 {
 }
+
 
 float LaserSensor::getRange(int index)
 {
