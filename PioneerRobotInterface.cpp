@@ -40,7 +40,6 @@ bool PioneerRobotInterface::open()
 void PioneerRobotInterface::move(float speed)
 {
 	moveRobot(speed);
-
 }
 
 /*!

@@ -1,6 +1,6 @@
 /**
 * @file SonarSensor.h
-* @Author Ömer Berkan Çalýk,Berk Bulgan
+* @Author Omer Berkan Calik,Berk Bulgan
 * @date January, 2018
 * @brief This file is for SonarSensor class definition.
 */
