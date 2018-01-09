@@ -13,7 +13,7 @@ class RobotControl
 	vector <RangeSensor*>sensor;
 	Position* position;
 public:
-	RobotControl(PioneerRobotInterface* _robot, LaserSensor * _laser, SonarSensor*  _sonar) :robot(_robot) {	
+	RobotControl(PioneerRobotInterface* _robot, LaserSensor * _laser, SonarSensor*  _sonar) :robot(_robot) {
 		sensor.push_back(_laser);
 		sensor.push_back(_sonar);
 	}

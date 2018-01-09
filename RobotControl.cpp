@@ -10,13 +10,21 @@ RobotControl::~RobotControl()
 
 void RobotControl::safeMove(int speed)
 {
-	
 	while (true) {
 		robot->update();
-		if (sensor[0]->getMin() < 80  || sensor[1]->getRange(6) < 80 || sensor[1]->getRange(5) < 80 || sensor[1]->getRange(4) < 80 || sensor[1]->getRange(3) < 80 || sensor[1]->getRange(2) < 80 || sensor[1]->getRange(1) < 80)
+		if (sensor[0]->getMin() < 300  || sensor[1]->getRange(6) < 250 || sensor[1]->getRange(5) < 250 || sensor[1]->getRange(4) < 250 || sensor[1]->getRange(3) < 250 || sensor[1]->getRange(2) < 250 || sensor[1]->getRange(1) < 250 || sensor[1]->getRange(0) < 250)
 			break;
-		robot->move(speed);
-		Sleep(1000);
+		robot->move(1000);
+		Sleep(100);
+		cout << "Laser: "<< sensor[0]->getMin() << endl;
+		cout << "Sonar0:" << sensor[1]->getRange(0) << endl;
+		cout << "Sonar1:" << sensor[1]->getRange(1) << endl;
+		cout << "Sonar2:" << sensor[1]->getRange(2) << endl;
+		cout << "Sonar3:" << sensor[1]->getRange(3) << endl;
+		cout << "Sonar4:" << sensor[1]->getRange(4) << endl;
+		cout << "Sonar5:" << sensor[1]->getRange(5) << endl;
+		cout << "Sonar6:" << sensor[1]->getRange(6) << endl;
+		
 	}
 	robot->stop();
 }
@@ -56,7 +64,7 @@ void RobotControl::moveDistance(float distance)
 		t += 1;
 		}
 
-	
+	robot->stop();
 }
 void RobotControl::closeWall() {
 	safeMove(50);

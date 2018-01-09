@@ -66,11 +66,12 @@ int main()
 			system("cls");
 			robot->move(50);
 			cout << "Robot is moving with speed 50." << endl << endl;
+			cout << "Min: " << laser->getMin() << " max: " << laser->getMax() << endl;;
 		}			
 		else if (sw2 == 2)
 		{
 			system("cls");
-			controller.safeMove(80);
+			controller.safeMove(1000);
 			cout << "Robot is moving with speed 80. It will stop when it get closes the wall." << endl << endl;
 		}
 		else if (sw2 == 3)
@@ -119,13 +120,25 @@ int main()
 		break;
 	case 3: // Sensor Menu
 		FOREVER{
-			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl;
+			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << "3.Back"<<endl;
 		cin >> sw3;
 		if (sw3 == 1)
 			{
-			
-	
+				cout << "Min: " << laser->getMin() << " max: " << laser->getMax() << endl;;
 			}
+		else if(sw3 == 2)
+		{
+			int sonar_index;
+			cout << "Enter the index: " << endl;
+			cin >> sonar_index;
+			sonar->getRange(sonar_index);
+		}
+
+		else if (sw3 == 3)
+		{
+			system("cls");
+			break;
+		}
 		}
 		break;
 	case 4: // Quit Selection
