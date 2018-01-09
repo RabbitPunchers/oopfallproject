@@ -12,7 +12,7 @@ PioneerRobotInterface::PioneerRobotInterface()
 
 void PioneerRobotInterface::update()
 {
-		
+
 }
 bool PioneerRobotInterface::open()
 {
@@ -54,8 +54,6 @@ void PioneerRobotInterface::stop()
 }
 void PioneerRobotInterface::updateRobot()
 {
-	//getLaserRange();
-	//getSonarRange();
 	PioneerRobotAPI::updateRobot();
 	myX = getX();
 	myY = getY();
@@ -69,6 +67,4 @@ void PioneerRobotInterface::updateRobot()
 	rangeSensor[0]->updateSensor(laserRanges);
 }
 
-PioneerRobotInterface::~PioneerRobotInterface()
-{
-}
+PioneerRobotInterface::~PioneerRobotInterface(){}

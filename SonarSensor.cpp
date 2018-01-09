@@ -1,17 +1,8 @@
 #include "SonarSensor.h"
 
+SonarSensor::SonarSensor(){}
 
-
-SonarSensor::SonarSensor()
-{
-
-}
-
-
-SonarSensor::~SonarSensor()
-{
-
-}
+SonarSensor::~SonarSensor(){}
 
 float SonarSensor::getRange(int index)
 {
@@ -30,19 +21,16 @@ float SonarSensor::getMax()
 		if (ranges[i] > max)
 			max = ranges[i];
 	}
-
 	return max;
 }
 float SonarSensor::getMin()
 {
-	
 	float min = ranges[0];
 	for (int i = 0; i < 16; i++)
 	{
 		if (ranges[i] < min)
 			min = ranges[i];
 	}
-
 	return min;
 }
 void SonarSensor::updateSensor(float range[])

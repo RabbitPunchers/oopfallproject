@@ -2,15 +2,9 @@
 #include <vector>
 
 
-RobotInterface::RobotInterface()
-{
-}
+RobotInterface::RobotInterface(){}
 
-
-RobotInterface::~RobotInterface()
-{
-}
-
+RobotInterface::~RobotInterface(){}
 
 void RobotInterface::setPosition(Position* pos)
 {
