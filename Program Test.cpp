@@ -71,26 +71,28 @@ int main()
 		else if (sw2 == 2)
 		{
 			system("cls");
-			controller.safeMove(1000);
 			cout << "Robot is moving with speed 80. It will stop when it get closes the wall." << endl << endl;
+			controller.safeMove(1000);
 		}
 		else if (sw2 == 3)
 		{
 			system("cls");
-			controller.turnLeft();
 			cout << "Robot is turning left." << endl << endl;
+			controller.turnLeft();
+
 		}
 		else if (sw2 == 4)
 		{
 			system("cls");
-			controller.turnRight();
 			cout << "Robot is turning left." << endl << endl;
+			controller.turnRight();
 		}
 		else if (sw2 == 5)
 		{
 			system("cls");
-			controller.forward();
 			cout << "Robot is moving with speed 50." << endl << endl;
+			controller.forward();
+
 		}
 		else if (sw2 == 6)
 		{
@@ -102,8 +104,9 @@ int main()
 		else if (sw2 == 7)
 		{
 			system("cls");
-			controller.closeWall();
 			cout << "Robot is moving with speed 50. It will stop when it get closes the wall." << endl << endl;
+			controller.closeWall();
+
 		}
 		else if (sw2 == 8)
 		{
@@ -120,30 +123,42 @@ int main()
 		break;
 	case 3: // Sensor Menu
 		FOREVER{
-			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << "3.Back"<<endl;
+			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << "3.Back" << endl << "Choose One: ";
 		cin >> sw3;
 		if (sw3 == 1)
 			{
-				cout << "Min: " << laser->getMin() << " max: " << laser->getMax() << endl;;
+			system("cls");
+			cout << "Min: " << laser->getMin() << " Max: " << laser->getMax() << endl << endl;
 			}
 		else if(sw3 == 2)
-		{
+			{
+			robot->update();
+			system("cls");
 			int sonar_index;
-			cout << "Enter the index: " << endl;
+			cout << "Enter the index(Enter -1 to see them all.): ";
 			cin >> sonar_index;
-			sonar->getRange(sonar_index);
-		}
-
+			if (sonar_index == -1)
+			{
+				system("cls");
+				cout << "Robot's solar sensor's ranges are:" << endl;
+				for (int _index = 0; _index < 16; _index++)
+					cout << "Sensor[" << _index << "] :" << sonar->getRange(_index) << endl;
+			}
+			else
+				cout << "Sensor number " << sonar_index << ": " << sonar->getRange(sonar_index) << endl << endl;
+			}
+		
 		else if (sw3 == 3)
-		{
+			{
 			system("cls");
 			break;
-		}
+			}
 		}
 		break;
 	case 4: // Quit Selection
 		return 0;
 	default: // Default Menu
+		system("cls");
 		cout << "Please type numbers between 1-4.";
 		break;
 
