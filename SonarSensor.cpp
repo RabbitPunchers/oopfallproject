@@ -24,7 +24,7 @@ void SonarSensor::setRange(float range[])
 }
 float SonarSensor::getMax()
 {
-	float max = 0;
+	float max = ranges[0];
 	for (int i = 0; i < 16; i++)
 	{
 		if (ranges[i] > max)
@@ -36,7 +36,7 @@ float SonarSensor::getMax()
 float SonarSensor::getMin()
 {
 	
-	float min = 0;
+	float min = ranges[0];
 	for (int i = 0; i < 16; i++)
 	{
 		if (ranges[i] < min)

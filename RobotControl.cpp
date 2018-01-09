@@ -1,7 +1,5 @@
 #include "RobotControl.h"
-
-
-
+#include <ctime>
 
 RobotControl::~RobotControl()
 {
@@ -53,15 +51,16 @@ void RobotControl::print()
 }
 void RobotControl::moveDistance(float distance)
 {
-	float t = 0;
-	for (t; t = distance / 50;)
+	int t = 0;
+	for (t; t<=distance / 300;t = t + 1)
 		 {
 		robot->update();
-		if (sensor[0]->getMin() < 40)
-			 break;
-		robot->move(50);
+		//if (sensor[1]->getMin() < 800)
+			// break;
+		robot->move(300);
 		Sleep(1000);
-		t += 1;
+		cout << "time: " << t << endl;
+		cout << "distance: " << distance << endl;
 		}
 
 	robot->stop();
@@ -78,7 +77,7 @@ void RobotControl::closeWall() {
 
 	while (true) {
 		robot->update();
-		if (sensor[1]->getMin() < 300)
+		if (sensor[1]->getMin() < 700)
 			break;
 		robot->move(100);
 		Sleep(100);
