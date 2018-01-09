@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	int sw1, sw2, sw3, swm;
-	
+	bool onoff = false;
 	SonarSensor* sonar = new SonarSensor;
 	LaserSensor* laser = new LaserSensor;
 	PioneerRobotInterface* robot = new PioneerRobotInterface;
@@ -32,10 +32,12 @@ int main()
 			system("cls");
 			if (robot->open()) {
 				cout << "Robot is connected succesfully." << endl << endl;
+				onoff = true;
 			}
 			else
 			{
 				cout << "Robot connection is unsuccessful." << endl << endl;
+				onoff = false;
 			}
 		}
 		else if (sw1 == 2) //ROBOT DISCONNECTION
@@ -43,6 +45,7 @@ int main()
 			system("cls");
 			if (robot->close()) {
 				cout << "Robot is disconnected succesfully." << endl << endl;
+				onoff = false;
 			}
 			else 
 			{
@@ -57,6 +60,15 @@ int main()
 		}
 		break;
 	case 2: // Motion Menu
+		if (!onoff)
+		{
+			system("cls");
+			cout << "**************************" << endl;
+			cout << "*  Please connect robot  *" << endl;
+			cout << "* before accessing menus *" << endl;
+			cout << "**************************" << endl << endl << endl;
+			break;
+		}
 		FOREVER{
 		cout << "Motion Menu" << endl << "1. Move Robot" << endl << "2. Safe Move Robot" << endl << "3. Turn Left" << endl << "4. Turn Right" << endl;
 		cout << "5. Forward" << endl << "6. Move Distance" << endl << "7. Close Wall" << endl << "8. Stop Robot" << endl << "9. Back" << endl << "Choose One : ";
@@ -122,6 +134,15 @@ int main()
 	}
 		break;
 	case 3: // Sensor Menu
+		if (!onoff)
+		{
+			system("cls");
+			cout << "**************************" << endl;
+			cout << "*  Please connect robot  *" << endl;
+			cout << "* before accessing menus *" << endl;
+			cout << "**************************" << endl << endl << endl;
+			break;
+		}
 		FOREVER{
 			cout << "Select Sensor: " << endl << "1. Laser Sensor" << endl << "2. Sonar Sensor" << endl << "3. Back" << endl << "Choose One: ";
 		cin >> sw3;
