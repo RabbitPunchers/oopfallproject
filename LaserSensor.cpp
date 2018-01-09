@@ -4,7 +4,8 @@
 
 LaserSensor::LaserSensor()
 {
-
+min = 0;
+max = 0;
 }
 
 
@@ -15,7 +16,10 @@ LaserSensor::~LaserSensor()
 
 float LaserSensor::getRange(int index)
 {
-	return 1;
+	if (index == 0)
+		return min;
+	if (index == 1)
+		return max;
 }
 void LaserSensor::setRange(float range[])
 {
@@ -36,5 +40,5 @@ float LaserSensor::getMin()
 }
 float LaserSensor::operator[](int i)
 {
-	return 0.0;
+	return getRange(i);
 }
