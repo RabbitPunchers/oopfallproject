@@ -2,16 +2,9 @@
 
 
 
-LaserSensor::LaserSensor()
-{
+LaserSensor::LaserSensor(){}
 
-}
-
-
-LaserSensor::~LaserSensor()
-{
-
-}
+LaserSensor::~LaserSensor(){}
 
 float LaserSensor::getRange(int index)
 {

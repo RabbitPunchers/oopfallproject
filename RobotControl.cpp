@@ -1,10 +1,7 @@
 #include "RobotControl.h"
 #include <ctime>
 
-RobotControl::~RobotControl()
-{
-	
-}
+RobotControl::~RobotControl(){}
 
 void RobotControl::safeMove(int speed)
 {
@@ -14,7 +11,7 @@ void RobotControl::safeMove(int speed)
 			break;
 		robot->move(300);
 		Sleep(100);
-		cout << "Laser: "<< sensor[0]->getMin() << endl;
+		cout << "Laser: " << sensor[0]->getMin() << endl;
 		cout << "Sonar0:" << sensor[1]->getRange(0) << endl;
 		cout << "Sonar1:" << sensor[1]->getRange(1) << endl;
 		cout << "Sonar2:" << sensor[1]->getRange(2) << endl;
@@ -22,7 +19,6 @@ void RobotControl::safeMove(int speed)
 		cout << "Sonar4:" << sensor[1]->getRange(4) << endl;
 		cout << "Sonar5:" << sensor[1]->getRange(5) << endl;
 		cout << "Sonar6:" << sensor[1]->getRange(6) << endl;
-		
 	}
 	robot->stop();
 }
@@ -45,15 +41,15 @@ void RobotControl::print()
 	cout << "-----------------------------------------" << endl << "Laser Sensor's range to the nearest wall: " << sensor[0]->getMin();
 	cout << endl << "Sonar Sensor's ranges by index number: " << endl;
 	for (int i = 0; i < 16; i++)
-		 {
-			cout << "Index: " << i << "// Range: " << sensor[1]->getRange(i) << endl;
-		}
+	{
+		cout << "Index: " << i << "// Range: " << sensor[1]->getRange(i) << endl;
+	}
 }
 void RobotControl::moveDistance(float distance)
 {
 	int t = 0;
-	for (t; t<=distance / 300;t = t + 1)
-		 {
+	for (t; t <= distance / 300; t = t + 1)
+	{
 		robot->update();
 		//if (sensor[1]->getMin() < 800)
 			// break;
@@ -61,8 +57,7 @@ void RobotControl::moveDistance(float distance)
 		Sleep(1000);
 		cout << "time: " << t << endl;
 		cout << "distance: " << distance << endl;
-		}
-
+	}
 	robot->stop();
 }
 void RobotControl::closeWall() {
@@ -73,7 +68,7 @@ void RobotControl::closeWall() {
 		cout << "Index: " << i << "// Range: " << sensor[1]->getRange(i) << endl;
 	}
 
-	cout <<"min: "<< sensor[1]->getMin() << endl;
+	cout << "min: " << sensor[1]->getMin() << endl;
 
 	while (true) {
 		robot->update();
@@ -81,9 +76,6 @@ void RobotControl::closeWall() {
 			break;
 		robot->move(100);
 		Sleep(100);
-
 	}
-
 	robot->stop();
-	
 }

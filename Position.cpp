@@ -1,7 +1,5 @@
 #include "Position.h"
 
-
-
 Position::Position()
 {
 	x = 0;
@@ -10,9 +8,7 @@ Position::Position()
 }
 
 
-Position::~Position()
-{
-}
+Position::~Position(){}
 
 float Position::getX()
 {
