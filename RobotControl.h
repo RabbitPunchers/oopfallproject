@@ -8,7 +8,11 @@
 #pragma once
 #include <vector>
 #include <iostream>
+<<<<<<< HEAD
 #include "PioneerRobotInterface.h" 
+=======
+#include "PioneerRobotInterface.h" 						
+>>>>>>> 479c4233875f80b6bc3c33d6f93140ff025d2684
 #include "RangeSensor.h"
 using namespace std;
 
