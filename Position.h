@@ -1,6 +1,6 @@
 /**
  * @file Position.h
- * @Author Omer Berkan Calik, Berk Bulgan
+ * @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
  * @date January, 2018
  * @brief This file is for Position class definition.
 */

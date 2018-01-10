@@ -1,17 +1,16 @@
 /**
 * @file RobotControl.h
-* @Author Omer Berkan Calik, Berk Bulgan
+* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
 * @date January, 2018
 * @brief This file is for RobotControl class definition.
 */
 
 #pragma once
 #include <vector>
-#include "PioneerRobotInterface.h"
 #include <iostream>
-#include "LaserSensor.h"
-#include "SonarSensor.h"
-#define FOREVER while(true);
+#include "PioneerRobotInterface.h" //PioneerRobotInterface.h yazmak istemiyorum cunku polymorphism
+							//ama bu haliyle sleep fonksyonu patliyor ne yapmaliyiz omer?????
+#include "RangeSensor.h"
 using namespace std;
 
 //! RobotControl Class.
@@ -22,13 +21,19 @@ class RobotControl
 {
 	//! This is for accessing to the RobotInterface.
 	RobotInterface* robot;
-	//! This vector stores the sensors.
+	//! This vector stores the sensors' adresses.
 	vector <RangeSensor*>sensor;
-	//! This is for accessing t the Position.
+	//! This is for accessing to the Position.
 	Position* position;
 public:
 	//! Constructor.
-	RobotControl(RobotInterface* _robot, LaserSensor * _laser, SonarSensor*  _sonar, Position* _pos) :robot(_robot), position(_pos) {
+	/*
+		\param _robot previously created robot's adress to be able to control it.
+		\param _laser previously created laser sensor's adress to access it within controller.
+		\param _sonar previously created sonar sensor's adress to access it within controller.
+		\param _pos previously created position object's adress to access it within controller.	
+	*/
+	RobotControl(RobotInterface* _robot, RangeSensor* _laser, RangeSensor*  _sonar, Position* _pos) :robot(_robot), position(_pos) {
 		sensor.push_back(_laser);
 		sensor.push_back(_sonar);
 	}
@@ -49,4 +54,3 @@ public:
 	//! This function moves robot forward and stops it when robot gets close to a wall.
 	void closeWall();
 };
-

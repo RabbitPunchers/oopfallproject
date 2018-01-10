@@ -1,8 +1,10 @@
+/**
+* @file PioneerRobotInterface.cpp
+* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
+* @date January, 2018
+* @brief This file is for PioneerRobotInterface class' function's definitions.
+*/
 #include "PioneerRobotInterface.h"
-
-
-
-
 PioneerRobotInterface::PioneerRobotInterface()
 {
 	setRobot(this);
@@ -40,6 +42,7 @@ bool PioneerRobotInterface::open()
 void PioneerRobotInterface::move(float speed)
 {
 	moveRobot(speed);
+
 }
 
 /*!
@@ -51,7 +54,7 @@ bool PioneerRobotInterface::close()
 }
 
 /*!
-  \param dir is an enum.Which represent the turning direction.
+  \param dir is an enum. Which represent the turning direction.
 */
 void PioneerRobotInterface::turn(RobotInterface::DIRECTION dir)
 {

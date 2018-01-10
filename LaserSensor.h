@@ -1,6 +1,6 @@
 /**
  * @file LaserSensor.h
- * @Author Omer Berkan Calik, Berk Bulgan
+ * @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
  * @date January, 2018
  * @brief LaserSensor Class definition.
 */
@@ -22,17 +22,17 @@ class LaserSensor :
 	//! This is for storing the maximum range.
 	float max;
 public:
-	//! Overloaded RangeSensor::getRange().
+	//! This function returns min value if index is 0, returns max value if index is 1.
 	float getRange(int index);
-	//! Overloaded RangeSensor::setRange().
+	//! This function sets the min and max values according to given array.
 	void setRange(float range[]);
-	//! Overloaded RangeSensor::updateSensor().
+	//! This function updates the min and max values according to given array.
 	void updateSensor(float ranges[]);
 	//! This function returns the max attribute.
 	float getMax();
 	//! This function returns the min attribute.
 	float getMin();
-	//! operator[] overloading.
+	//! This function returns min value if index is 0, returns max value if index is 1.
 	float operator[](int i);
 	//! Constructor.
 	LaserSensor();

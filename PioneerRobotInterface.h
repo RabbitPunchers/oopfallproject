@@ -1,12 +1,13 @@
 /**
  * @file PioneerRobotInterface.h
- * @Author Omer Berkan Calik, Berk Bulgan
+ * @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
  * @date January, 2018
  * @brief This is an interface for controlling the robot.
 */
 
 #pragma once
 #include "RobotInterface.h"
+#include "PioneerRobotAPI.h"
 
 //! PioneerRobotInterface Class
 /*!
@@ -18,7 +19,7 @@ class PioneerRobotInterface : public RobotInterface, public PioneerRobotAPI
 public:
 	//! Constructor. 
 	PioneerRobotInterface();
-	//! Overloaded RobotInterface::update().
+	//! This function updates sensors and position variables of the robot.
 	void update();
 	//! This function calls PioneerRobotAPI::connect().This is for connecting to the robot.
 	bool open();
@@ -30,7 +31,7 @@ public:
 	void turn(RobotInterface::DIRECTION dir);
 	//! This function calls PioneerRobotAPI::stopRobot().It stops the robot's movement.
 	void stop();
-	//! This function updates the robot's attributes.
+	//! This function calls PioneerRobotAPI::updateRobot() to update its variables.
 	void updateRobot();
 	//! Destructor.
 	~PioneerRobotInterface();

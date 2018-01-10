@@ -1,6 +1,6 @@
 /**
 * @file RangeSensor.h
-* @Author Omer Berkan Calik,Berk Bulgan
+* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
 * @date January, 2018
 * @brief This file is for RangeSensor class definition.
 */
@@ -22,19 +22,19 @@ public:
 	RangeSensor();
 	//! Destructor.
 	~RangeSensor();
-	//! Pure virtual function for updating sensor ranges. SonarSensor uses this function.
+	//! Pure virtual function for updating sensor ranges.
 	virtual void updateSensor(float ranges[]) = 0;
-	//! Pure virtual function for getting minimum sensor range. LaserSensor uses this function.
+	//! Pure virtual function for getting minimum sensor range.
 	virtual float getMin() = 0;
-	//! Pure virtual function for getting maximum sensor range. LaserSensor uses this function.
+	//! Pure virtual function for getting maximum sensor range.
 	virtual float getMax() = 0;
-	//! Pure virtual function for getting the given sensor range. SonarSensor uses this function.
+	//! Pure virtual function for getting the given sensor range.
 	virtual float getRange(int index) = 0;
 	//! This returns type value.
 	virtual string getType();
 	//! This changes type value with the given string.
 	void setType(const string&);
-	//! Operator[] overloading.SonarSensor uses this function.
+	//! Operator[] overloading to access ranges with given integer.
 	virtual float operator[](int) = 0;
 };
 
