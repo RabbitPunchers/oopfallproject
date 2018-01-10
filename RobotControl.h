@@ -8,8 +8,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#include "PioneerRobotInterface.h" //PioneerRobotInterface.h yazmak istemiyorum cunku polymorphism
-							//ama bu haliyle sleep fonksyonu patliyor ne yapmaliyiz omer?????
+#include "PioneerRobotInterface.h" 
 #include "RangeSensor.h"
 using namespace std;
 

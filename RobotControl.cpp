@@ -22,7 +22,7 @@ void RobotControl::safeMove(int speed)
 		robot->update();
 		if (sensor[1]->getRange(3) < 700 || sensor[1]->getRange(4) < 700)
 			break;
-		robot->move(50);
+		robot->move(300);
 		Sleep(100);
 		system("cls");
 		cout << "Sonar Sensor's ranges by index number: " << endl;

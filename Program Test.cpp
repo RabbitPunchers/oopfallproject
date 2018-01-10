@@ -15,7 +15,10 @@ using namespace std;
 
 int main()
 {
+	
+	//! Variables to control switch menu.
 	int sw1, sw2, sw3, swm;
+	//! Variable to check connection status of robot.
 	bool onoff = false;
 	SonarSensor* sonar = new SonarSensor;
 	LaserSensor* laser = new LaserSensor;
@@ -30,17 +33,17 @@ int main()
 		cout << "Main Menu" << endl << "1. Connection" << endl << "2. Motion" << endl << "3. Sensor" << endl << "4. Quit" << endl << "Choose one : ";
 		cin >> swm;
 		system("cls");
-		switch (swm)
+		switch (swm) //! Decleration of menu.
 		{
-		case 1: // Connection Menu	
+		case 1: //! Connection menu	
 			FOREVER
 			{
 				cout << "Connection Menu" << endl << "1. Connect Robot" << endl << "2. Disconnect Robot" << endl << "3. Back" << endl << "Choose one : ";
 				cin >> sw1;
-				if (sw1 == 1) //ROBOT CONNECTION
+				if (sw1 == 1)
 				{
 					system("cls");
-					if (robot->open())
+					if (robot->open()) //ROBOT CONNECTION
 					{
 						cout << "Robot is connected succesfully." << endl << endl;
 						onoff = true;
@@ -59,20 +62,20 @@ int main()
 					else
 						cout << "Robot disconnecion is unsuccessful" << endl << endl;
 				}
-				else if (sw1 == 3)
+				else if (sw1 == 3) //BACK
 				{
 					system("cls");
 					break;
 				}
-				else
+				else //ERROR
 				{
 					system("cls");
 					cout << "Please type numbers between 1-3." << endl << endl;
 				}
 			}
 			break;
-		case 2: // Motion Menu
-			if (!onoff)
+		case 2: //! Motion menu.
+			if (!onoff) //! A check if the robot is connected.
 			{
 				system("cls");
 				cout << "**************************" << endl;
@@ -148,8 +151,8 @@ int main()
 				}
 			}
 			break;
-		case 3: // Sensor Menu
-			if (!onoff)
+		case 3: //! Sensor menu
+			if (!onoff) //! A check if the robot is connected.
 			{
 				system("cls");
 				cout << "**************************" << endl;
@@ -203,9 +206,9 @@ int main()
 				}
 			}
 			break;
-		case 4: // Quit Selection
+		case 4: //! Quit selection.
 			return 0;
-		default: // Default Menu
+		default: //! Default menu.
 			system("cls");
 			cout << "Please type numbers between 1-4." << endl << endl;
 			break;
