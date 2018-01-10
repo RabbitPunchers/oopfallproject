@@ -1,6 +1,6 @@
 /**
  * @file PioneerRobotInterface.h
- * @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
+ * @Author Omer Berkan Calik, Ibrahim Berk Bulgan
  * @date January, 2018
  * @brief This is an interface for controlling the robot.
 */

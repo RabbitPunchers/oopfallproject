@@ -1,6 +1,6 @@
 /**
 * @file RangeSensor.h
-* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
+* @Author Omer Berkan Calk, Ibrahim Berk Bulgan
 * @date January, 2018
 * @brief This file is for RangeSensor class definition.
 */

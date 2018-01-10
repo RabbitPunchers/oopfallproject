@@ -1,6 +1,6 @@
 /**
 * @file RangeSensor.cpp
-* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
+* @Author Omer Berkan Calik, Ibrahim Berk Bulgan
 * @date January, 2018
 * @brief This file is for RangeSensor class' function's definitions.
 */

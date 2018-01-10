@@ -1,9 +1,10 @@
 /**
 * @file SonarSensor.cpp
-* @Author Ömer Berkan Çalýk, Ibrahim Berk Bulgan
+* @Author Omer Berkan Calik, Ibrahim Berk Bulgan
 * @date January, 2018
 * @brief This file is for SonarSensor class' function's definitions.
 */
+
 #include "SonarSensor.h"
 SonarSensor::SonarSensor(){}
 SonarSensor::~SonarSensor(){}
